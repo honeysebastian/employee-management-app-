@@ -16,3 +16,9 @@ export const getDetailsAPI=async()=>{
 export const removeDetailsAPI=async(noteid)=>{
     return await commonAPI('DELETE',`${SERVER_URL}/empDetails/${noteid}`,{})
 }
+
+// update details
+export const updateDetailsAPI=async(noteid,empDetails)=>{
+    return await commonAPI('PUT',`${SERVER_URL}/empDetails/${noteid}`,empDetails)
+}
+

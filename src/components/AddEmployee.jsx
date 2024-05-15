@@ -14,23 +14,20 @@ function AddEmployee({ setAddEmpDetailsResponse }) {
         empID: '', userName: '', email: '', status: ''
     })
 
-    const[InvalidEmail,setInavalidEmail]=useState(false)
-    console.log(empDetails);
+    const [InvalidEmail, setInavalidEmail] = useState(false)
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
 
-    const InvalidEmailId=(emailID)=>{
+    const InvalidEmailId = (emailID) => {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(emailPattern.test(emailID)) {
+        if (emailPattern.test(emailID)) {
             setEmpDetails({ ...empDetails, email: emailID });
-            setError('');
             setInavalidEmail(false)
         } else {
-            setEmpDetails({...empDetails,email:''})
+            setEmpDetails({ ...empDetails, email: '' })
             setInavalidEmail(true)
-            setError('Invalid email address');
         }
 
     }
@@ -63,8 +60,12 @@ function AddEmployee({ setAddEmpDetailsResponse }) {
 
     return (
         <div>
-            <div style={{ height: '90px' }} className="w-100 d-flex justify-content-center align-items-center bg-warning p-5">
-                <button onClick={handleShow} className='btn btn-light text-danger'>Add Emplpoyee Details</button>
+            <div className='w-100 bg-warning p-3 mb-5'>
+                <h2 style={{ fontSize: '50px' }} className='text-center text-dark'>Employee Management App</h2>
+            </div>
+            <div style={{ height: '90px' }} className="w-100 d-flex justify-content-around align-items-center p-5">
+                <h2 style={{ color: "white", fontSize: '30px' }}>Employee Details</h2>
+                <button onClick={handleShow} className='btn btn-light text-danger'>Add Employee Details</button>
             </div>
             <Modal
                 show={show}
